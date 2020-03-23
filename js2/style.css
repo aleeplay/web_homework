@@ -1,0 +1,39 @@
+td {
+    border: 1px solid black;
+}
+
+textarea {
+    border: 1px solid black;
+}
+
+.rect {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 3px solid black;
+    background-color: blueviolet;
+    text-align: center;
+}
+
+.functions {
+    display: inline-block;
+    border: 3px solid black;
+    padding: 3px;
+    background-color: royalblue;
+}
+
+.hidden {
+    display: none;
+}
+
+.functions>div {
+    margin-left: 1px;
+    margin-right: 1px;
+    width: 100px;
+    display: inline-flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: top;
+    font-weight: bold;
+    vertical-align: text-top;
+}

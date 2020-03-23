@@ -1,0 +1,117 @@
+.header {
+  width: 100%;
+}
+.img_size {
+  width: 100%;
+}
+.header .container {
+  width: 100%;
+  position: absolute;
+  top: 40%;
+}
+#IC {
+  width: 100%;
+  color: white;
+  font-size: 1000%;
+  position: absolute;
+  text-align: center;
+}
+#CYID {
+  position: absolute;
+  width: 100%;
+  font-size: 175%;
+  text-align: center;
+  top: 550px;
+  color: white;
+}
+.header .container .btn {
+  width: 10%;
+  background-color: black;
+  position: absolute;
+  text-align: center;
+  color: white;
+  transform: translate(-50%);
+  top: 650px;
+  padding: 7px;
+  text-decoration: none;
+}
+.nav .container {
+  display: inline-block;
+  width: 100%;
+  height: 75px;
+  background-color: black;
+  position: absolute;
+  top: 1400px;
+}
+
+.nav li {
+  color: white;
+  list-style-type: none;
+  float: left;
+  font-size: 200%;
+  margin-left: 3%;
+  padding: 10px;
+}
+.nav li:hover {
+  background-color: dodgerblue;
+}
+#ICC {
+  position: absolute;
+  margin-left: 400px;
+  margin-top: 40px;
+  width: 650px;
+}
+.sc {
+  position: absolute;
+  text-align: right;
+}
+#img1 {
+  float: left;
+  margin-top: 100px;
+  margin-left: 90px;
+}
+#img2 {
+  margin-top: 300px;
+}
+#ICCFOOT {
+  position: absolute;
+  margin-left: 40px;
+  margin-top: 1400px;
+}
+#SCF {
+  color: white;
+}
+.jumbotron {
+  position: absolute;
+}
+.footer {
+  background-color: black;
+}
+#ftr {
+  position: absolute;
+  margin-top: 1400px;
+  width: 100%;
+  top: 1250px;
+}
+#BFTR {
+  color: white;
+  margin-left: 40px;
+}
+.container .bot {
+  position: absolute;
+  left: 1000px;
+  top: 700px;
+  color: white;
+}
+.bot .btn {
+  width: 10%;
+  background-color: dodgerblue;
+  position: absolute;
+  text-align: center;
+  color: white;
+  left: 80%;
+  padding: 7px;
+  padding-left: 25px;
+  padding-right: 25px;
+  text-decoration: none;
+}
