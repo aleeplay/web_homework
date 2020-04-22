@@ -1,5 +1,4 @@
-
-$(window).on('load', function () {
+$(window).on('load', function() {
     if (!checkParams()) {
         alert("Пустые параметры")
     } else {
@@ -38,22 +37,22 @@ function CreateBlocks() {
 
     let shirina = $(`<input class="form-control" type="text"/>`)
     shirina.attr("maxLength", 3)
-    shirina.on("input",function () { but1.text("Применить " + shirina.val() + " px" + " и рамка " + letiant.val()) })
+    shirina.on("input", function() { but1.text("Применить " + shirina.val() + " px" + " и рамка " + letiant.val()) })
     div1.find(".card-body").append(shirina)
 
     const border = ["none", "dotted", "dashed", "solid", "double", "groove", "ridge", "inset", "outset"]
     let letiant = $(`<select class="form-control"></select>"`)
     div1.find(".card-body").append(letiant)
-    letiant.change(function () { but1.text("Применить " + shirina.val() + " px" + " и рамка " + letiant.val()) })
+    letiant.change(function() { but1.text("Применить " + shirina.val() + " px" + " и рамка " + letiant.val()) })
     for (let i = 0; i < border.length; i++) {
         let opt = $(`<option>${border[i]}</option>`)
         letiant.append(opt)
     }
 
     let but1 = $(`<button class="btn btn-success">Применить</button>`)
-    but1.click(function () {
+    but1.click(function() {
         let text = $(but1).parent().find("input").val()
-        let borderStyle =  $(but1).parent().find("select").val()
+        let borderStyle = $(but1).parent().find("select").val()
         console.log(text, borderStyle)
         document.querySelector("table").style.borderStyle = borderStyle
         document.querySelector("table").style.borderWidth = text + "px"
@@ -70,7 +69,7 @@ function CreateBlocks() {
     div2.find(".card-body").append(zag)
 
     let but2 = $(`<button class="btn btn-success">Добавить</button>`)
-    but2.click(function () { h.text(zag.value) })
+    but2.click(function() { h.text(zag.val()) })
     div2.find(".card-body").append("<hr/>")
     div2.find(".card-body").append(but2)
 
@@ -80,22 +79,20 @@ function CreateBlocks() {
 
     let str = $(`<input class="form-control" placeholder="Строка" type="text"/>`)
     div3.find(".card-body").append(str)
-    div3.find(".card-body").append("Или")
+    div3.find(".card-body").append("столбец")
 
     let std = $(`<input class="form-control" placeholder="Столбец" type="text"/>`)
     div3.find(".card-body").append(std)
     div3.find(".card-body").append("<hr/>")
     let but3 = $(`<button class="btn btn-success">Удалить</button>`)
-    but3.click(function () {
+    but3.click(function() {
         if (str.val() > 0 && str.val() < document.getElementsByTagName("tr").length) {
             document.getElementsByTagName("tr")[str.val()].remove()
-        } 
-        else if (std.val() > 0 && std.val() < document.querySelector("tr").getElementsByTagName("td").length) { 
+        } else if (std.val() > 0 && std.val() < document.querySelector("tr").getElementsByTagName("td").length) {
             Array.from(document.getElementsByTagName("tr")).map(tr => {
                 tr.querySelectorAll("td")[std.val()].remove()
             })
-        }
-        else { alert("Значение некорректно") }
+        } else { alert("Значение некорректно") }
     })
     div3.find(".card-body").append(but3)
 
@@ -105,7 +102,7 @@ function CreateBlocks() {
     div4.find(".card-body").append(`<p class="card-title">Случайный выбор</p>`)
 
     let but4 = $(`<button class="btn btn-success">Magic</button>`)
-    but4.click(function () {
+    but4.click(function() {
         let i = randomInteger(1, document.getElementsByTagName("tr").length - 1)
         let j = randomInteger(1, document.getElementsByTagName("tr")[0].getElementsByTagName("td").length - 1)
         let rand = document.getElementsByTagName("tr")[i].childNodes[j]
@@ -123,7 +120,7 @@ function CreateBlocks() {
     functions.append(div5)
     div5.find(".card-body").append(`<p class="card-title">Очистить таблицу</p>`)
     let but5 = $(`<button class="btn btn-success">Удалить</button>`)
-    but5.click(function () {
+    but5.click(function() {
         let str = document.querySelectorAll("table tr")
         for (let i = 1; i < str.length; i++) {
             let std = str[i].querySelectorAll("td")
@@ -146,7 +143,7 @@ function CreateBlocks() {
 function createForm(root) {
     root.html("")
     let form_letiable = $(`<div class="form-group"><form class="form-inline"><textarea class="form-control-sm mr-2"></textarea><button class="btn btn-success"><span>Сохранить</span></button></form></div>`)
-    $(form_letiable).submit(function (e) {
+    $(form_letiable).submit(function(e) {
         $(e.target).parent().text(e.target.elements[0].value)
         return false
     })
@@ -165,17 +162,14 @@ function CreateTable(str, stb) {
                 column.css("background", "#eee")
                 column.removeClass("col")
 
-            }
-            else if (i == 0) {
+            } else if (i == 0) {
                 column.css("background", "#eee")
-                column.text("abcdefghijklmnopqrstuvwxyz"[j - 1])
-            }
-            else if (j == 0) {
+                column.text("abcdefghijklmnopqrstuvwxyz" [j - 1])
+            } else if (j == 0) {
                 column.css("background", "#eee")
                 column.removeClass("col")
                 column.text(i)
-            }
-            else {
+            } else {
                 createForm(column)
             }
         }
