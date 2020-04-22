@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     //Selectors
     $("p").css("fontSize", "20px");
@@ -15,8 +15,8 @@ $(document).ready(function () {
     //DOM
     $("a").prepend("↖");
     $("a").attr("target", "_blank")
-    $("a").each(function () {
-        $(this).attr("href", function (_, value) {
+    $("a").each(function() {
+        $(this).attr("href", function(_, value) {
             return value.replace("http:", "https:")
         });
     });
@@ -29,16 +29,15 @@ $(document).ready(function () {
         "top": 0,
         "right": 0
     })
-    cancel.click(function () {
-        $("a").each(function () {
-            $(this).text(function (_, text) {
+    cancel.click(function() {
+        $("a").each(function() {
+            $(this).text(function(_, text) {
                 return text.replace(/^↖/, "")
             });
         });
 
         $("form > *").attr("disabled", false);
     });
-
     /*JQUERY EFFECTS https://www.w3schools.com/jquery/jquery_ref_effects.asp */
     $("#fadeOut").click((e) => {
         $(e.target).closest("tr").find("p").fadeOut();
@@ -49,7 +48,7 @@ $(document).ready(function () {
     });
 
     $("#fadeTo").click((e) => {
-        $(e.target).closest("tr").find("p").fadeTo(1000, 0.8, "linear", () => alert('success'));
+        $(e.target).closest("tr").find("p").fadeTo(1000, 0.2, "linear", () => alert('success'));
     });
 
     $("#fadeToggle").click((e) => {
@@ -65,29 +64,11 @@ $(document).ready(function () {
     });
 });
 
-//prop - ключ, props[prop] - значение
-/*
-Рекурсивно создаём список. Если очередной элемент - текстовый, просто добавляем его к списку,
-Иначе создаём новый список, передав туда текущий объект
-
-Например:
-req = {
-  glossary: {
-    title: "example glossary"
-    GlossDiv: {
-      title: "S"
-    }
-  }
-}
-Вызываем makeList
-glossary - Объект, пожтому пишем его название и вызываем функцию makeList, передав туда уже не req,
-а только glossary. В нём есть title, который просто переносим, а есть объект GlossDiv, который мы вставляем через makeList
-*/
 function makeList(props) {
     let ul = $('<ul></ul>');
     for (prop in props) {
         let li = $('<li></li>');
-        if (typeof (props[prop]) !== 'object') {
+        if (typeof(props[prop]) !== 'object') {
             li.text(props[prop]);
         } else {
             li.text(prop);
@@ -115,7 +96,7 @@ $("#ajax").click(() => {
 $.ajax({
     url: "https://inxaoc.github.io/example/ajax.json"
 }).done((result) => {
-    let req = { ...result };
+    let req = {...result };
     console.log(req);
     $("body").append(makeList(req));
 });
